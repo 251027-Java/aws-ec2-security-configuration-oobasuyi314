@@ -28,10 +28,10 @@ Fill in the following table with appropriate values:
 
 | Rule | Type | Protocol | Port | Source | Purpose |
 |------|------|----------|------|--------|---------|
-| 1    | SSH  | TCP      | ?    | ?      | Admin access |
-| 2    | ?    | TCP      | 80   | ?      | Web traffic |
-| 3    | ?    | TCP      | 443  | ?      | Secure web |
-| 4    | Custom TCP | TCP | ?  | 10.0.0.0/8 | Internal API |
+| 1    | SSH  | TCP      | 22    | My IP      | Admin access |
+| 2    | HTTP    | TCP      | 80   | Anywhere-IPv4      | Web traffic |
+| 3    | HTTPS    | TCP      | 443  | Anywhere-IPv4      | Secure web |
+| 4    | Custom TCP | TCP | 8080  | 10.0.0.0/8 | Internal API |
 
 ### Task 2: Create Security Group (Console)
 1. Navigate to EC2 → Security Groups → Create
@@ -76,9 +76,9 @@ Given these symptoms, identify the likely cause:
 
 | Symptom | Likely Cause | Solution |
 |---------|--------------|----------|
-| Can't SSH to instance | ? | ? |
-| Website not loading | ? | ? |
-| API calls timing out | ? | ? |
+| Can't SSH to instance | IP Address not correct | Ensure ssh is allowed from current ip |
+| Website not loading | HTTP or HTTPS not set up correctly | Ensure there is valid http/https incoming traffic rules |
+| API calls timing out | Don't have rules for incoming requests on 8080 | Ensure have a valid rule for incoming requests |
 
 ## Deliverables
 1. Completed security group rules table (Task 1)
